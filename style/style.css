@@ -1,0 +1,60 @@
+.EventList,
+.ChildList,
+.PlotList > div {
+  margin: 0;
+  padding: 1px 0 0 0;
+  list-style-type: none;
+}
+
+.Event > .children {
+  display: none;
+}
+
+.Event.expandStateOpen > .children {
+  display: block;
+}
+
+.Event.name > .children > div {
+  padding: 0 0 0 10px;
+}
+/*//////body > div > div > div.PlotList > div:nth-child(2) > div.Event.plot.expandStateOpen > div > div > div:nth-child(1) > div > div > div > div:nth-child(1)///*/
+.Event.name > .children > div > div {
+
+   padding: 1px 0 0 1px;
+   line-height: 18px;
+
+}
+.Event.plot > svg {
+  display: block;
+}
+
+.Event.plot > .timeline > rect {
+  stroke-width: 3;
+  stroke: rgb(0,0,0);
+}
+
+.BreakDown {
+  position: relative;
+}
+
+.BreakDown > .EventList {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+}
+
+.BreakDown > .PlotList {
+  position: relative;
+  width: auto;
+  margin-left: 300px;
+  overflow: auto;
+  z-index: 1;
+}
+
+/*///////////////////////////////////// demo stijl ///////////////////////////*/
+.BreakDown {
+  width: auto;
+  height: 1000px;
+}

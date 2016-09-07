@@ -1,32 +1,78 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import Event from './event';
 
 class ChildList extends Component {
-  renderList() {
-    return this.props.children.map((child) => {
-      console.log(child);
+plotWidth = this.props.allEvents.timing.duration * this.props.globals.plotScale
+
+renderList() {
+  return this.props.children.map((event) => {
+    const hasChildren = event.children.length > 0;
+    if (hasChildren === true) {
       if (this.props.source === 'event') {
         return (
-          <li>
-            {/* key={child.type}> */}
-            {child.type}
-          </li>
+          <div key={event.id}>
+            <Event
+              hasChildren="true"
+              source="event"
+              key={event.id}
+              event={event}/>
+          </div>
         );
       }
       return (
-        <li>
-          {/* key={child.type}> */}
-          {child.timing.begin.time}
-        </li>
+        <div key={event.id}>
+          <Event
+            source="plot"
+            counterStart={this.props.allEvents.timing.begin.counter}
+            key={event.id}
+            event={event}
+            color="rgb(0,255,255)"/>
+        </div>
       );
-    });
-  }
-  render() {
+    }
+    if (this.props.source === 'event') {
+      return (
+        <div key={event.id}>
+          <Event
+            source="event"
+            key={event.id}
+            event={event}
+          />
+        </div>
+      );
+    }
     return (
-      <ul className="list-group">
-        {this.renderList()}
-      </ul>
+      <div key={event.id}>
+        <Event
+          source="plot"
+          plotWidth={this.plotWidth}
+          counterStart={this.props.allEvents.timing.begin.counter}
+          key={event.id}
+          event={event}
+          color="rgb(0,255,255)"
+        />
+      </div>
     );
-  }
+  });
 }
 
-export default ChildList;
+render() {
+  return (
+      <div
+        className="EventList">
+        {this.renderList()}
+      </div>
+  );
+}
+}
+
+function mapStateToProps(state) {
+  return {
+    allEvents: state.input,
+    expandedEvents: state.expandedEvents,
+    globals: state.globals
+  };
+}
+
+export default connect(mapStateToProps)(ChildList);

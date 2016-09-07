@@ -1,23 +1,108 @@
 export default function() {
   const inputJson = `
-            [{
+  {
+    "timing": {
+        "begin": {
+            "counter": 4000.000,
+            "time": 1473061730000
+        },
+        "duration": 10000.00000,
+        "end": {
+            "counter": 14000.000,
+            "time": 1473061740000
+        }
+    },
+    "transactions": [
+        {
+            "error": null,
+            "id": "Homepage",
+            "title": "01_Home",
+            "timing": {
+                "begin": {
+                    "counter": 4000.000,
+                    "time": 1473061730000
+                },
+                "duration": 4500.000,
+                "end": {
+                    "counter": 8500.000,
+                    "time": 1473061734500
+                }
+            }
+        },
+        {
+            "error": null,
+            "id": "Awaypage",
+            "title": "02_Away",
+            "timing": {
+                "begin": {
+                    "counter": 8500.000,
+                    "time": 1473061734500
+                },
+                "duration": 5500.000,
+                "end": {
+                    "counter": 14000.000,
+                    "time": 1473061740000
+                }
+            }
+        }
+    ],
+    "events": [
+        {
             "children": [
                 {
-                    "children": [],
+                    "children": [
+                      {
+                          "children": [],
+                          "comment": "",
+                          "metaData": {},
+                          "timing": {
+                              "begin": {
+                                  "counter": 4000.000,
+                                  "time": 1473061730000
+                              },
+                              "duration": 50.000,
+                              "end": {
+                                  "counter": 4050.00,
+                                  "time": 1473061730050
+                              }
+                          },
+                          "type": "window-event:slowFrame",
+                          "id": "57cda1c6fab84ddabe000111"
+                      },
+                      {
+                          "children": [],
+                          "comment": "",
+                          "metaData": {},
+                          "timing": {
+                              "begin": {
+                                  "counter": 4050.000,
+                                  "time": 1473061730050
+                              },
+                              "duration": 50.000,
+                              "end": {
+                                  "counter": 4100.000,
+                                  "time": 1473061730100
+                              }
+                          },
+                          "type": "window-event:slowFrame",
+                          "id": "57cda1c6fab84ddabe000112"
+                      }
+                    ],
                     "comment": "",
                     "metaData": {},
                     "timing": {
                         "begin": {
-                            "counter": 58463.221978999994,
-                            "time": 1472596677845.45
+                            "counter": 4000.000,
+                            "time": 1473061730000
                         },
-                        "duration": 102.95205500000156,
+                        "duration": 100.000,
                         "end": {
-                            "counter": 58566.174033999996,
-                            "time": 1472596677948.402
+                            "counter": 4100.00,
+                            "time": 1473061730100
                         }
                     },
-                    "type": "window-event:slowFrame"
+                    "type": "window-event:slowFrame",
+                    "id": "57cda1c6fab84ddabe000002"
                 },
                 {
                     "children": [],
@@ -25,16 +110,17 @@ export default function() {
                     "metaData": {},
                     "timing": {
                         "begin": {
-                            "counter": 58566.174033999996,
-                            "time": 1472596677948.402
+                            "counter": 4100.000,
+                            "time": 1473061730100
                         },
-                        "duration": 591.1791110000049,
+                        "duration": 600.000,
                         "end": {
-                            "counter": 59157.353145,
-                            "time": 1472596678539.581
+                            "counter": 4700.000,
+                            "time": 1473061730700
                         }
                     },
-                    "type": "window-event:slowFrame"
+                    "type": "window-event:slowFrame",
+                    "id": "57cda1c6fab84ddabe000003"
                 },
                 {
                     "children": [],
@@ -45,16 +131,17 @@ export default function() {
                     },
                     "timing": {
                         "begin": {
-                            "counter": 58163.098776,
-                            "time": 1472596677545.327
+                            "counter": 4600.000,
+                            "time": 1473061730600
                         },
-                        "duration": 1263.8745479999998,
+                        "duration": 1500.000,
                         "end": {
-                            "counter": 59426.973324,
-                            "time": 1472596678809.2014
+                            "counter": 6100.000,
+                            "time": 1473061732100
                         }
                     },
-                    "type": "window-event:documentInteractive"
+                    "type": "window-event:documentInteractive",
+                    "id": "57cda1c6fab84ddabe000004"
                 },
                 {
                     "children": [],
@@ -62,16 +149,17 @@ export default function() {
                     "metaData": {},
                     "timing": {
                         "begin": {
-                            "counter": 59157.353145,
-                            "time": 1472596678539.581
+                            "counter": 6100.000,
+                            "time": 1473061732100
                         },
-                        "duration": 341.5548689999996,
+                        "duration": 3000,
                         "end": {
-                            "counter": 59498.908014,
-                            "time": 1472596678881.136
+                            "counter": 9100.000,
+                            "time": 1473061735100
                         }
                     },
-                    "type": "window-event:slowFrame"
+                    "type": "window-event:slowFrame",
+                    "id": "57cda1c6fab84ddabe000005"
                 },
                 {
                     "children": [],
@@ -79,16 +167,17 @@ export default function() {
                     "metaData": {},
                     "timing": {
                         "begin": {
-                            "counter": 59498.908014,
-                            "time": 1472596678881.136
+                            "counter": 8100.000,
+                            "time": 1473061734100
                         },
-                        "duration": 194.88244699999632,
+                        "duration": 1000,
                         "end": {
-                            "counter": 59693.790461,
-                            "time": 1472596679076.0186
+                            "counter": 9100,
+                            "time": 1473061735100
                         }
                     },
-                    "type": "window-event:slowFrame"
+                    "type": "window-event:slowFrame",
+                    "id": "57cda1c6fab84ddabe000006"
                 },
                 {
                     "children": [],
@@ -99,16 +188,17 @@ export default function() {
                     },
                     "timing": {
                         "begin": {
-                            "counter": 58163.098776,
-                            "time": 1472596677545.327
+                            "counter": 9000,
+                            "time": 1473061735000
                         },
-                        "duration": 1922.5720940000028,
+                        "duration": 1000,
                         "end": {
-                            "counter": 60085.67087,
-                            "time": 1472596679467.899
+                            "counter": 10000.000,
+                            "time": 1473061736000
                         }
                     },
-                    "type": "window-event:documentComplete"
+                    "type": "window-event:documentComplete",
+                    "id": "57cda1c6fab84ddabe000007"
                 }
             ],
             "comment": "",
@@ -117,16 +207,17 @@ export default function() {
             },
             "timing": {
                 "begin": {
-                    "counter": 58163.098776,
-                    "time": 1472596677545.327
+                    "counter": 4000.000,
+                    "time": 1473061730000
                 },
-                "duration": 3085.322140999997,
+                "duration": 6000.000,
                 "end": {
-                    "counter": 61248.420916999996,
-                    "time": 1472596680631
+                    "counter": 10000.000,
+                    "time": 1473061736000
                 }
             },
-            "type": "DOMWindow"
+            "type": "DOMWindow",
+            "id": "57cda1c6fab84ddabe000008"
         },
         {
           "children": [],
@@ -137,18 +228,20 @@ export default function() {
           },
           "timing": {
               "begin": {
-                  "counter": 57796.041699,
-                  "time": 1472596677179
+                  "counter": 9000.000,
+                  "time": 1473061735000
               },
-              "duration": 369.4865839999984,
+              "duration": 5000.00,
               "end": {
-                  "counter": 58165.528283,
-                  "time": 1472596677548
+                  "counter": 14000.000,
+                  "time": 1473061740000
               }
           },
-          "type": "command:navigate"
-        }]
-        `;
+          "type": "command:navigate",
+          "id": "57cda1c6fab84ddabe000009"
+        }
+      ]
+    }`;
 
   const listEvents = JSON.parse(inputJson);
 
