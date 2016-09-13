@@ -4,3 +4,10 @@ export function expandEvent(eventExp) {
     payload: eventExp
   };
 }
+
+export function clickEvent(eventActive) {
+  return {
+    type: 'EVENT_CLICK',
+    payload: eventActive
+  };
+}

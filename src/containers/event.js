@@ -3,6 +3,7 @@ import ChildList from './child_list';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { expandEvent } from '../actions/index';
+import { clickEvent } from '../actions/index';
 
 class Event extends Component {
   eventStart = this.props.event.timing.begin.counter - this.props.counterStart;
@@ -25,47 +26,72 @@ class Event extends Component {
     }
   }
 
+  renderExpandButton() {
+    console.log(this.hasChildren);
+    if (this.hasChidren === true) {
+      return (
+          <input style={{position: 'relative', left: 5, top: 2}}
+            type="image"
+            src= {`${this.isExpanded ? '../../style/images/toggle_minus.png' : '../../style/images/toggle_plus.png'}`}
+            onClick={() => this.nameClicked()}/>
+      );
+    }
+  }
+
   render() {
-    // const rectStyle = {
-    //   fill: 'rgb(0,0,255)',
-    //   strokeWidth: 3,
-    //   stroke: 'rgb(0,0,0)'
-    // };
-    //console.log('check: ', this.props.expandedEvents, this.isExpanded);
-    // if (this.props.event.children.length === 0) {
-    //   if (this.props.source === 'plot') {
-    //     return (
-    //       <li
-    //         className = "list-group-item">
-    //         <div>{this.props.event.type}</div>
-    //       </li>
-    //     );
-    //   }
-    // }
     if (this.props.source === 'event') {
-      console.log(this.props.expandedEvents);
+      if (this.hasChildren) {
+        return (
+          <div
+            className = {`Event name ${this.isExpanded ? 'expandStateOpen' : 'expandStateClosed'}`}>
+            <div
+              className = {`type ${this.hasChildren ? 'clickable' : 'notClickable'}`}>
+              <div style={{display: 'inline-block', width: 25}}>
+                <input style={{position: 'relative', left: 5, top: 2}}
+                  type="image"
+                  src= {`${this.isExpanded ? '../../style/images/toggle_minus.png' : '../../style/images/toggle_plus.png'}`}
+                  onClick={() => this.nameClicked()}/>
+              </div>
+              <div style={{display: 'inline-block'}}
+                onClick={() => this.props.clickEvent(this.props.event)}>
+                {this.props.event.type}
+              </div>
+            </div>
+            <div className= "children">
+              <ChildList
+                source = "event"
+                children = {this.props.event.children} />
+            </div>
+          </div>
+        );
+      }
       return (
         <div
           className = {`Event name ${this.isExpanded ? 'expandStateOpen' : 'expandStateClosed'}`}>
           <div
-            className = {`type ${this.hasChildren ? 'clickable' : 'notClickable'}`}
-            onClick={() => this.nameClicked()}>
-            {this.props.event.type}
+            className = {`type ${this.hasChildren ? 'clickable' : 'notClickable'}`}>
+            <div style={{display: 'inline-block', width: 25}}>
+              <span style={{position: 'relative', left: 5, top: 2}}>
+              </span>
+            </div>
+            <div style={{display: 'inline-block'}}
+              onClick={() => this.props.clickEvent(this.props.event)}>
+              {this.props.event.type}
+            </div>
           </div>
           <div className= "children">
             <ChildList
               source = "event"
               children = {this.props.event.children} />
           </div>
-        </div>
+          </div>
       );
     }
     return (
       <div
         className = {`Event plot ${this.isExpanded ? 'expandStateOpen' : 'expandStateClosed'}`}>
-        {/* <div> {this.eventStart} => {this.eventEnd}</div> */}
         <svg className="timeline" width={this.props.plotWidth} height="18" fill= {this.props.color}>
-          <rect width= {this.rectWidth} height="13" x= {this.rectStart} />
+          <rect width= {this.rectWidth} height="14" x= {this.rectStart} y="2" />
         </svg>
         <div className="children">
           <ChildList
@@ -81,12 +107,14 @@ class Event extends Component {
 function mapStateToProps(state) {
   return {
     expandedEvents: state.expandedEvents,
-    globals: state.globals
+    globals: state.globals,
+    height: state.height,
+    activeEvent: state.activeEvent
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ expandEvent: expandEvent }, dispatch);
+  return bindActionCreators({ expandEvent: expandEvent, clickEvent: clickEvent }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Event);

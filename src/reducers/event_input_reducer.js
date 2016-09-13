@@ -40,7 +40,7 @@ export default function() {
                 },
                 "duration": 5500.000,
                 "end": {
-                    "counter": 14000.000,
+                    "counter": 13800.000,
                     "time": 1473061740000
                 }
             }
@@ -201,7 +201,7 @@ export default function() {
                     "id": "57cda1c6fab84ddabe000007"
                 }
             ],
-            "comment": "",
+            "comment": "This is the DOM-window event",
             "metaData": {
                 "isTopWindow": true
             },

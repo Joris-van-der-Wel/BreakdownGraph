@@ -4,29 +4,21 @@ import Event from './event';
 
 class EventList extends Component {
 
+  trueIfChildren(hasChildren) {
+    if (hasChildren) return 'true';
+  }
+
   renderList() {
     return this.props.allEvents.events.map((event) => {
       const hasChildren = event.children.length > 0;
-      if (hasChildren === true) {
-        return (
-          <div
-            key={event.id}>
-            <Event
-              hasChildren="true"
-              source="event"
-              key={event.id}
-              event={event}
-            />
-          </div>
-        );
-      }
       return (
-        <div key={event.id}>
+        <div
+          key={event.id}>
           <Event
+            hasChildren={this.trueIfChildren(hasChildren)}
             source="event"
             key={event.id}
-            event={event}
-          />
+            event={event}/>
         </div>
       );
     });
@@ -36,7 +28,7 @@ class EventList extends Component {
     return (
         <div
           className="EventList">
-          <div className="header"> Events </div>
+          <div className="header"> <strong>Breakdown > Events</strong> </div>
           {this.renderList()}
         </div>
     );
@@ -45,10 +37,8 @@ class EventList extends Component {
 
 function mapStateToProps(state) {
   return {
-    allEvents: state.input,
-    expandedEvents: state.expandedEvents
+    allEvents: state.input
   };
 }
-
 
 export default connect(mapStateToProps)(EventList);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Event from './event';
+import Transactions from './transactions';
 
 class PlotList extends Component {
   startTime = this.props.allEvents.timing.begin.counter;
@@ -25,7 +26,9 @@ class PlotList extends Component {
     return (
         <div
           className="PlotList">
-          <div className="header"> Timeline </div>
+          <Transactions
+            plotWidth={this.plotWidth} />
+          <div className="header" style={{height: 18}} />
           <div style={{width: this.plotWidth}}>
             {this.renderList()}
           </div>
