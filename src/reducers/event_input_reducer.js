@@ -1,3 +1,5 @@
+import resultJson from '../bax-shop.js';
+
 export default function() {
   const inputJson = `
   {
@@ -245,6 +247,7 @@ export default function() {
 
   const listEvents = JSON.parse(inputJson);
 
-  return listEvents
+  // return listEvents
+  return resultJson
   ;
 }

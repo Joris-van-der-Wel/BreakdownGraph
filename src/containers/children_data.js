@@ -12,10 +12,10 @@ class ChildrenData extends Component {
       return this.props.activeEvent.children.map((child) => {
         return (
           <div style={{display: 'flex'}}>
-            <div style={{float: 'left', width: '80%'}}> {child.type} </div>
-            <div style={{float: 'right', width: '20%'}}>
+            <div style={{float: 'left', width: '75%'}}> {child.type} </div>
+            <div style={{float: 'right', width: '25%'}}>
               <div style={{display: 'inline-block', verticalAlign: 'bottom', height: '100%', width: '0'}}></div>
-              : {child.timing.duration}ms
+              : {Math.round((child.timing.duration + 0.00001) * 100) / 100}ms
             </div>
           </div>
           );

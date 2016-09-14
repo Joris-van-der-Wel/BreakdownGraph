@@ -11,26 +11,26 @@ class MetaData extends Component {
     return (
       <div style={{display: 'block'}}>
         <div style={{display: 'flex'}}>
-          <div style={{float: 'left', width: '40%'}}>
+          <div style={{float: 'left', width: '30%'}}>
             <div>comment</div>
           </div>
-          <div style={{float: 'right', width: '60%'}}>
+          <div style={{float: 'right', width: '70%'}}>
             <div>: {this.props.activeEvent.comment}</div>
           </div>
         </div>
         <div style={{display: 'flex'}}>
-          <div style={{float: 'left', width: '40%'}}>
+          <div style={{float: 'left', width: '30%'}}>
             <div>id</div>
           </div>
-          <div style={{float: 'right', width: '60%'}}>
+          <div style={{float: 'right', width: '70%'}}>
             <div>: {this.props.activeEvent.id}</div>
           </div>
         </div>
         <div style={{display: 'flex'}}>
-          <div style={{float: 'left', width: '40%'}}>
+          <div style={{float: 'left', width: '30%'}}>
             <div>children</div>
           </div>
-          <div style={{float: 'right', width: '60%'}}>
+          <div style={{float: 'right', width: '70%'}}>
             <div>: {this.props.activeEvent.children.length}</div>
           </div>
         </div>

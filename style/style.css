@@ -50,7 +50,7 @@
 }
 
 .Event.name {
-  line-height: 17px;
+  line-height: 18px;
 }
 
 .Event.name > .children > div {
@@ -58,7 +58,7 @@
 }
 
 .Event.name > .children > div > div {
-   padding: 1px 0 0 1px;
+   padding: 0 0 0 1px;
    line-height: 17px;
 }
 .Event.plot > svg {
@@ -72,11 +72,15 @@
 
 .BreakDown {
   position: relative;
-  background-repeat: repeat;
   border-size: 1px;
   border-style: solid;
   border-color: grey;
+  overflow-y: auto;
+  height: 1000px;
 }
+/*.Breakdown > .Background {
+  background-repeat: repeat;
+}*/
 
 .BreakDown > .EventList {
   position: absolute;
@@ -91,7 +95,7 @@
   position: relative;
   width: auto;
   margin-left: 310px;
-  overflow: auto;
+  overflow-x: auto;
   z-index: 1;
 }
 

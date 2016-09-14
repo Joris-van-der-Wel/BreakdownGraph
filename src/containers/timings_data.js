@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 
 class TimingsData extends Component {
 
+
+  eventEnd() {
+    if (this.props.activeEvent.timing.end.counter) {
+      return this.props.activeEvent.timing.end.counter - this.props.allEvents.timing.begin.counter;
+    }
+    return this.props.allEvents.timing.end.counter - this.props.allEvents.timing.begin.counter;
+  }
+
   renderList() {
     if (this.props.activeEvent === null) {
       return (
@@ -10,7 +18,6 @@ class TimingsData extends Component {
       );
     }
     const begin = this.props.activeEvent.timing.begin.counter - this.props.allEvents.timing.begin.counter;
-    const end = this.props.activeEvent.timing.end.counter - this.props.allEvents.timing.begin.counter;
     return (
       <div style={{display: 'block'}}>
         <div style={{display: 'flex'}}>
@@ -18,7 +25,7 @@ class TimingsData extends Component {
             <div>Begin</div>
           </div>
           <div style={{float: 'right', width: '25%'}}>
-            <div>: {begin}ms</div>
+            <div>: {Math.round((begin + 0.00001) * 100) / 100}ms</div>
           </div>
         </div>
         <div style={{display: 'flex'}}>
@@ -26,7 +33,7 @@ class TimingsData extends Component {
             <div>End</div>
           </div>
           <div style={{float: 'right', width: '25%'}}>
-            <div>: {end}ms</div>
+            <div>: {Math.round((this.eventEnd() + 0.00001) * 100) / 100}ms</div>
           </div>
         </div>
         <div style={{display: 'flex'}}>
@@ -34,7 +41,7 @@ class TimingsData extends Component {
             <div>Duration</div>
           </div>
           <div style={{float: 'right', width: '25%'}}>
-            <div>: {this.props.activeEvent.timing.duration}ms</div>
+            <div>: {Math.round((this.props.activeEvent.timing.duration + 0.00001) * 100) / 100}ms</div>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import Transactions from './transactions';
 
 class PlotList extends Component {
   startTime = this.props.allEvents.timing.begin.counter;
-  plotWidth = this.props.allEvents.timing.duration * this.props.globals.plotScale;
+  plotWidth = (this.props.allEvents.timing.duration + 200) * this.props.globals.plotScale;
 
   renderList() {
     return this.props.allEvents.events.map((event) => {

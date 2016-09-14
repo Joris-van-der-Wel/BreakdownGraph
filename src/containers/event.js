@@ -7,7 +7,6 @@ import { clickEvent } from '../actions/index';
 
 class Event extends Component {
   eventStart = this.props.event.timing.begin.counter - this.props.counterStart;
-  eventEnd = this.props.event.timing.end.counter - this.props.counterStart;
   eventDuration = this.props.event.timing.duration;
   rectWidth = this.eventDuration * this.props.globals.plotScale;
   rectStart = this.eventStart * this.props.globals.plotScale;
@@ -109,7 +108,8 @@ function mapStateToProps(state) {
     expandedEvents: state.expandedEvents,
     globals: state.globals,
     height: state.height,
-    activeEvent: state.activeEvent
+    activeEvent: state.activeEvent,
+    allEvents: state.input
   };
 }
 
