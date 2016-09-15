@@ -21,26 +21,26 @@ class TimingsData extends Component {
     return (
       <div style={{display: 'block'}}>
         <div style={{display: 'flex'}}>
-          <div style={{float: 'left', width: '75%'}}>
+          <div style={{float: 'left', width: '50%'}}>
             <div>Begin</div>
           </div>
-          <div style={{float: 'right', width: '25%'}}>
+          <div style={{float: 'right', width: '50%'}}>
             <div>: {Math.round((begin + 0.00001) * 100) / 100}ms</div>
           </div>
         </div>
         <div style={{display: 'flex'}}>
-          <div style={{float: 'left', width: '75%'}}>
+          <div style={{float: 'left', width: '50%'}}>
             <div>End</div>
           </div>
-          <div style={{float: 'right', width: '25%'}}>
+          <div style={{float: 'right', width: '50%'}}>
             <div>: {Math.round((this.eventEnd() + 0.00001) * 100) / 100}ms</div>
           </div>
         </div>
         <div style={{display: 'flex'}}>
-          <div style={{float: 'left', width: '75%'}}>
+          <div style={{float: 'left', width: '50%'}}>
             <div>Duration</div>
           </div>
-          <div style={{float: 'right', width: '25%'}}>
+          <div style={{float: 'right', width: '50%'}}>
             <div>: {Math.round((this.props.activeEvent.timing.duration + 0.00001) * 100) / 100}ms</div>
           </div>
         </div>
@@ -49,17 +49,16 @@ class TimingsData extends Component {
   }
 
   render() {
-    console.log(this.props.activeEvent);
     if (this.props.activeEvent === null) {
       return (
-        <div className="data" style={{float: 'right', width: '33.33%', height: 'auto', padding: '2px 2px 2px 2px'}}>
+        <div className="data" style={{float: 'right', width: '25%', height: 'auto', padding: '2px 2px 2px 2px'}}>
           <strong> Timings: No event selected </strong>
           <div> {this.renderList()} </div>
         </div>
       );
     }
     return (
-      <div className="data" style={{float: 'right', width: '33.33%', height: 'auto', padding: '2px 2px 2px 2px'}}>
+      <div className="data" style={{float: 'right', width: '25%', height: 'auto', padding: '2px 2px 2px 2px'}}>
         <strong> {this.props.activeEvent.type} > Timings </strong>
         <div> {this.renderList()} </div>
       </div>

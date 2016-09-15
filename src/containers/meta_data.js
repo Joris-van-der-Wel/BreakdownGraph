@@ -14,7 +14,7 @@ class MetaData extends Component {
           <div style={{float: 'left', width: '30%'}}>
             <div>comment</div>
           </div>
-          <div style={{float: 'right', width: '70%'}}>
+          <div style={{float: 'right', width: '70%', wordWrap: 'break-word'}}>
             <div>: {this.props.activeEvent.comment}</div>
           </div>
         </div>
@@ -22,7 +22,7 @@ class MetaData extends Component {
           <div style={{float: 'left', width: '30%'}}>
             <div>id</div>
           </div>
-          <div style={{float: 'right', width: '70%'}}>
+          <div style={{float: 'right', width: '70%', wordWrap: 'break-word'}}>
             <div>: {this.props.activeEvent.id}</div>
           </div>
         </div>
@@ -30,7 +30,7 @@ class MetaData extends Component {
           <div style={{float: 'left', width: '30%'}}>
             <div>children</div>
           </div>
-          <div style={{float: 'right', width: '70%'}}>
+          <div style={{float: 'right', width: '70%', wordWrap: 'break-word'}}>
             <div>: {this.props.activeEvent.children.length}</div>
           </div>
         </div>
@@ -38,17 +38,16 @@ class MetaData extends Component {
     );
   }
   render() {
-    console.log(this.props.activeEvent);
     if (this.props.activeEvent === null) {
       return (
-        <div className="dataMid" style={{float: 'left', width: '33.33%', height: 'auto', padding: '2px 2px 2px 2px'}}>
+        <div className="dataMid" style={{float: 'left', width: '38%', height: 'auto', padding: '2px 2px 2px 2px'}}>
           <strong> MetaData: No event selected </strong>
           <div> {this.renderList()} </div>
         </div>
       );
     }
     return (
-      <div className="dataMid" style={{float: 'left', width: '33.33%', height: 'auto', padding: '2px 2px 2px 2px'}}>
+      <div className="dataMid" style={{float: 'left', width: '38%', height: 'auto', padding: '2px 2px 2px 2px'}}>
         <strong> {this.props.activeEvent.type} > MetaData </strong>
         <div> {this.renderList()} </div>
       </div>

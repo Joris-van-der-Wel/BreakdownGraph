@@ -5,12 +5,6 @@
   width: 0;
 }
 
-.borderDiv {
-  border-size: 0.1px;
-  border-style: solid;
-  border-color: black;
-}
-
 .data {
   box-sizing: border-box;
   border-size: 1px;
@@ -76,13 +70,12 @@
   border-style: solid;
   border-color: grey;
   overflow-y: auto;
-  height: 1000px;
 }
 /*.Breakdown > .Background {
   background-repeat: repeat;
 }*/
 
-.BreakDown > .EventList {
+.BreakDown > .Background > .EventList {
   position: absolute;
   left: 0;
   top: 0;
@@ -91,7 +84,7 @@
   padding: 0 2px 0 2px;
 }
 
-.BreakDown > .PlotList {
+.BreakDown > .Background > .PlotList {
   position: relative;
   width: auto;
   margin-left: 310px;

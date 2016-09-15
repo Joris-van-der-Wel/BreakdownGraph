@@ -6,7 +6,7 @@ import TimingsData from './timings_data';
 class EventData extends Component {
   render() {
     return (
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', maxWidth: '1200', minWidth: '600'}}>
         <ChildrenData />
         <MetaData />
         <TimingsData />

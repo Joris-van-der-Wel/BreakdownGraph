@@ -16,22 +16,27 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <div
-          className="BreakDown"
-          style={{backgroundImage: this.calculateBackground()}} >
-          {/* <defs>
-            <pattern id="pattern1"
-            x="0" y="0" width="100%" height="36"
-            patternUnits="userSpaceOnUse" >
-            <rect x="100" y="100" fill= "grey"/>
-            </pattern>
-          </defs> */}
-          {/* <svg xmlns="http://www.w3.org/2000/svg" width= "100" height="36">
-            <rect width= "100" height="18" fill="white" fillOpacity="0.0" />
-            <rect width= "100" height="18" y="18" fill="grey" fillOpacity="0.5" />
-          </svg> */}
-          <EventList />
-          <PlotList />
+        <div className="container" style={{height: '500', display: 'flex', maxWidth: '1200', minWidth: '600'}}>
+          <div
+            className="BreakDown" style={{display: 'block', overflowX: 'hidden'}}>
+            <div className="Background"
+              style={{backgroundImage: this.calculateBackground(), minHeight: '100px',
+              overflow: 'hidden'}} >
+              {/* <defs>
+                <pattern id="pattern1"
+                x="0" y="0" width="100%" height="36"
+                patternUnits="userSpaceOnUse" >
+                <rect x="100" y="100" fill= "grey"/>
+                </pattern>
+              </defs> */}
+              {/* <svg xmlns="http://www.w3.org/2000/svg" width= "100" height="36">
+                <rect width= "100" height="18" fill="white" fillOpacity="0.0" />
+                <rect width= "100" height="18" y="18" fill="grey" fillOpacity="0.5" />
+              </svg> */}
+              <EventList />
+              <PlotList />
+            </div>
+          </div>
         </div>
         <EventData />
       </div>
