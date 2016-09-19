@@ -28,14 +28,14 @@ class ChildrenData extends Component {
   render() {
     if (this.props.activeEvent === null) {
       return (
-        <div className="data" style={{display: 'inline-block', width: '37%', height: 'auto', padding: '2px 2px 2px 2px'}}>
+        <div className="data" style={{display: 'inline-block', width: '37.5%', height: 'auto', padding: '2px 2px 2px 2px'}}>
           <strong> Children: No event selected </strong>
           <div> {this.renderList()} </div>
         </div>
       );
     }
     return (
-      <div className="data" style={{display: 'inline-block', width: '37%', height: 'auto', padding: '2px 2px 2px 2px'}}>
+      <div className="data" style={{display: 'inline-block', width: '37.5%', height: 'auto', padding: '2px 2px 2px 2px'}}>
         <strong> {this.props.activeEvent.type} > Children </strong>
         <div> {this.renderList()} </div>
       </div>

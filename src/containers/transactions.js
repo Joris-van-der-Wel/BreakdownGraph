@@ -19,30 +19,30 @@ class Transactions extends Component {
       if ((xPlot % (1000 * this.props.globals.plotScale)) === 0) {
         lines.push(
           <line className="second" key={xPlot + 'Second'}
-            x1={xPlot} y1="15" x2={xPlot} y2="100%" style={{ stroke: 'rgb(0,0,0)', strokeWidth: 0.8 }}/>
+            x1={xPlot} y1="-2" x2={xPlot} y2="100%" style={{ stroke: 'rgb(0,0,0)', strokeWidth: 0.8 }}/>
         );
       }
       lines.push(
         <line className="100ms" key={xPlot + '100ms'}
-          x1={xPlot} y1="18" x2={xPlot} y2="100%" style={{ stroke: 'rgb(0,0,0)', strokeWidth: 0.2 }}/>
+          x1={xPlot} y1="0" x2={xPlot} y2="100%" style={{ stroke: 'rgb(0,0,0)', strokeWidth: 0.2 }}/>
       );
     }
     return lines;
   }
 
-  renderTimetext() {
-    const secTexts = [];
-    for (let xPlot = 0; xPlot < this.props.plotWidth; xPlot += (1000 * this.props.globals.plotScale)) {
-      if (xPlot !== 0) {
-        secTexts.push(
-          <text className="timelineText" key={xPlot + 'Text'} x={xPlot - (70 * this.props.globals.plotScale)} y="13" key={xPlot} style={{fill: 'black'}}>
-            <tspan>{xPlot / (1000 * this.props.globals.plotScale) + 's'}</tspan>
-          </text>
-        );
-      }
-    }
-    return secTexts;
-  }
+  // renderTimetext() {
+  //   const secTexts = [];
+  //   for (let xPlot = 0; xPlot < this.props.plotWidth; xPlot += (1000 * this.props.globals.plotScale)) {
+  //     if (xPlot !== 0) {
+  //       secTexts.push(
+  //         <text className="timelineText" key={xPlot + 'Text'} x={xPlot - (70 * this.props.globals.plotScale)} y="13" key={xPlot} style={{fill: 'black'}}>
+  //           <tspan>{xPlot / (1000 * this.props.globals.plotScale) + 's'}</tspan>
+  //         </text>
+  //       );
+  //     }
+  //   }
+  //   return secTexts;
+  // }
 
   render() {
     return (
@@ -53,18 +53,18 @@ class Transactions extends Component {
           style={{position: 'absolute', zIndex: 10}}>
           {this.renderTransactions()}
         </svg>
-        <svg className="timeraster"
+        <svg className="timeroster"
           height="100%"
           width={this.props.plotWidth}
-          style={{position: 'absolute', zIndex: -1}}>
+          style={{position: 'absolute', zIndex: 1}}>
           {this.renderTimeline()}
         </svg>
-        <svg className="timeline"
+        {/* <svg className="timeline"
           height="18"
           width={this.props.plotWidth}
           style={{position: 'absolute', display: 'block', zIndex: 10}}>
           {this.renderTimetext()}
-        </svg>
+        </svg> */}
       </div>
     );
   }

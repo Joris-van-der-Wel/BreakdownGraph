@@ -65,31 +65,42 @@
 }
 
 .BreakDown {
-  position: relative;
+  /*position: relative;*/
   border-size: 1px;
   border-style: solid;
   border-color: grey;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 /*.Breakdown > .Background {
   background-repeat: repeat;
 }*/
 
-.BreakDown > .Background > .EventList {
-  position: absolute;
+.BreakDown > .Background > .content > .EventList {
+  /*position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
   width: 300px;
-  padding: 0 2px 0 2px;
+  padding: 0 2px 0 2px;*/
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300px;
+  overflow: hidden;
 }
 
-.BreakDown > .Background > .PlotList {
-  position: relative;
+.BreakDown > .Background > .content> .PlotList {
+  /*position: relative;
   width: auto;
   margin-left: 310px;
   overflow-x: auto;
-  z-index: 1;
+  z-index: 1;*/
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 310px:
+  width: auto;
+  overflow: hidden;
 }
 
 .BreakDown > .EventData {
@@ -101,7 +112,7 @@
 }
 
 /*///////////////////////////////////// demo stijl ///////////////////////////*/
-.BreakDown {
+/*.BreakDown {
   width: auto;
   height: auto;
-}
+}*/
