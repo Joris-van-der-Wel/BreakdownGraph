@@ -5,12 +5,21 @@ class Transactions extends Component {
   startCounter = this.props.allEvents.timing.begin.counter;
 
   renderTransactions() {
-    return this.props.allEvents.transactions.map((transaction) => {
-      const xPlot = (transaction.timing.end.counter - this.startCounter) * this.props.globals.plotScale;
+    // return this.props.allEvents.transactions.map((transaction) => {
+    //   const xPlot = (transaction.timing.end.counter - this.startCounter) * this.props.globals.plotScale;
+    //   return (
+    //     <line key={xPlot + 'Transaction'} x1={xPlot} y1="0" x2={xPlot} y2="100%" style={{ stroke: 'rgb(240,176,122)', strokeWidth: 3, strokeOpacity: '0.8' }}/>
+    //   );
+    // });
+    if (this.props.activeTrans) {
+      const id = this.props.activeTrans.id;
+      const rectStart = (this.props.activeTrans.timing.begin.counter - this.startCounter) * this.props.globals.plotScale;
+      const rectWidth = this.props.activeTrans.timing.duration * this.props.globals.plotScale;
+      (console.log(rectStart, this.props.activeTrans.timing.begin.counter, this.startCounter));
       return (
-        <line key={xPlot + 'Transaction'} x1={xPlot} y1="0" x2={xPlot} y2="100%" style={{ stroke: 'rgb(255,0,0)', strokeWidth: 4, strokeOpacity: '0.7' }}/>
+        <rect key={id} width={rectWidth} height="100%" x={rectStart} y="0" fill="grey" fillOpacity="0.3"/>
       );
-    });
+    }
   }
 
   renderTimeline() {
@@ -50,13 +59,13 @@ class Transactions extends Component {
         <svg className="transactions"
           height="100%"
           width={this.props.plotWidth}
-          style={{position: 'absolute', zIndex: 10}}>
+          style={{position: 'absolute', zIndex: 2}}>
           {this.renderTransactions()}
         </svg>
         <svg className="timeroster"
           height="100%"
           width={this.props.plotWidth}
-          style={{position: 'absolute', zIndex: 1}}>
+          style={{position: 'absolute', zIndex: 0}}>
           {this.renderTimeline()}
         </svg>
         {/* <svg className="timeline"
@@ -73,7 +82,8 @@ class Transactions extends Component {
 function mapStateToProps(state) {
   return {
     allEvents: state.input,
-    globals: state.globals
+    globals: state.globals,
+    activeTrans: state.activeTransaction
   };
 }
 

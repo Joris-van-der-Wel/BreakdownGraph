@@ -9,13 +9,15 @@ class ChildrenData extends Component {
       );
     }
     if (this.props.activeEvent.children.length !== 0) {
+      let iterator = 0;
       return this.props.activeEvent.children.map((child) => {
+        iterator += 1;
         return (
-          <div style={{display: 'flex'}}>
+          <div key={child + iterator} style={{display: 'flex'}}>
             <div style={{float: 'left', width: '75%', wordWrap: 'break-word'}}> {child.type} </div>
             <div style={{float: 'right', width: '25%'}}>
               <div style={{display: 'inline-block', verticalAlign: 'bottom', height: '100%', width: '0'}}></div>
-              : {Math.round((child.timing.duration + 0.00001) * 100) / 100}ms
+              : {Math.round((child.timing.duration + 0.00001) * 100) / 10000}ms
             </div>
           </div>
           );

@@ -47,6 +47,11 @@
   line-height: 18px;
 }
 
+.Event.plot {
+  position: relative;
+  z-index: 1;
+}
+
 .Event.name > .children > div {
   padding: 0 0 0 10px;
 }
@@ -75,21 +80,21 @@
   background-repeat: repeat;
 }*/
 
-.BreakDown > .Background > .content > .EventList {
+.BreakDown > .content > .combine > .EventList {
   /*position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
   width: 300px;
   padding: 0 2px 0 2px;*/
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   width: 300px;
   overflow: hidden;
 }
 
-.BreakDown > .Background > .content> .PlotList {
+.BreakDown > .content> .combine > .PlotList {
   /*position: relative;
   width: auto;
   margin-left: 310px;
@@ -98,7 +103,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  left: 310px:
+  left: 310px;
   width: auto;
   overflow: hidden;
 }

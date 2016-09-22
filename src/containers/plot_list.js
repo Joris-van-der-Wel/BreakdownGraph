@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import Event from './event';
 import Transactions from './transactions';
+import { bindActionCreators } from 'redux';
+import { scrollLeftValue } from '../actions/index';
 
 class PlotList extends Component {
   startTime = this.props.allEvents.timing.begin.counter;
   plotWidth = (this.props.allEvents.timing.duration + 500) * this.props.globals.plotScale;
-  scrollLeft = 0;
 
-  componentDidMount() {
-    document.addEventListener('scroll', this.scrollLeft);
-    // const node = ReactDOM.findDOMNode(this).firstElementChild;
-  }
-
-  scrollLeft() {
-    const node = ReactDOM.findDOMNode(this.refs.Content);
-    console.log(node);
-    // this.scrollLeft = node.scrollLeft;
+  get scrollAreaLeft() {
+    return this.refs.plotscroll.scrollLeft;
   }
 
   renderList() {
@@ -29,7 +22,7 @@ class PlotList extends Component {
           counterStart={this.startTime}
           key={event.id}
           event={event}
-          color="rgb(0,0,255)"
+          color="rgb(47,85,92)"
         />
       );
     });
@@ -39,7 +32,10 @@ class PlotList extends Component {
     return (
         <div
           className="PlotList">
-          <div ref="Content" className="content" style={{overflowX: 'scroll', overflowY: 'hidden'}}>
+          <div ref="plotscroll"
+            className="content"
+            scrollEventThrottle={16}
+            style={{overflowX: 'scroll', overflowY: 'hidden', position: 'relative'}}>
             <Transactions
               plotWidth={this.plotWidth} />
             {this.renderList()}
@@ -50,12 +46,15 @@ class PlotList extends Component {
 }
 
 function mapStateToProps(state) {
-  // Whatever is returned from her will show up as props
-  // inside of BookList
   return {
     allEvents: state.input,
-    globals: state.globals
+    globals: state.globals,
+    left: state.scrollLeftValue
   };
 }
 
-export default connect(mapStateToProps)(PlotList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ scrollLeftValue: scrollLeftValue }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps, null, {withRef: true})(PlotList);

@@ -28,6 +28,22 @@ export default {
             "error": null
         },
         {
+            "id": "Homepage_Dubbel",
+            "title": "01_Home",
+            "timing": {
+                "begin": {
+                    "counter": 4500.34587,
+                    "time": 1473780886128
+                },
+                "duration": 4000.152813999999,
+                "end": {
+                    "counter": 8500.498683999999,
+                    "time": 1473780889466
+                }
+            },
+            "error": null
+        },
+        {
             "id": "Zoeken",
             "title": "02_Zoeken",
             "timing": {
@@ -38,6 +54,22 @@ export default {
                 "duration": 2312.5051809999995,
                 "end": {
                     "counter": 10128.269003,
+                    "time": 1473780891779
+                }
+            },
+            "error": null
+        },
+        {
+            "id": "Zoeken_Dubbel",
+            "title": "02_Zoeken",
+            "timing": {
+                "begin": {
+                    "counter": 9000.763822,
+                    "time": 1473780889466
+                },
+                "duration": 1500.5051809999995,
+                "end": {
+                    "counter": 10500.269003,
                     "time": 1473780891779
                 }
             },

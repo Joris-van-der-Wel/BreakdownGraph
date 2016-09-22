@@ -28,7 +28,6 @@ class EventList extends Component {
     return (
         <div
           className="EventList">
-          {/* <div className="header" style={{position: 'fixed', background: 'white', width: '700', zIndex: 1 }}> <strong>Breakdown > Events</strong> </div> */}
           <div className="content">
             {this.renderList()}
           </div>

@@ -11,3 +11,16 @@ export function clickEvent(eventActive) {
     payload: eventActive
   };
 }
+
+export function activeTransaction(transaction) {
+  return {
+    type: 'ACTIVE_TRANS',
+    payload: transaction
+  }
+}
+// export function scrollLeftValue(left) {
+//   return {
+//     type: 'SCROLL_LEFT',
+//     payload: left
+//   };
+// }
