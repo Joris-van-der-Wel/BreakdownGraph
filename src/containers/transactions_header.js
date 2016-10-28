@@ -18,12 +18,20 @@ class TransactionsHeader extends Component {
         bool = !bool;
         lastEnd = transaction.timing.end.counter;
         firstLayer.push(
-            <rect key={rectStart + rectWidth} onClick={() => this.props.activeTransaction(transaction)} width= {rectWidth} height="16" x= {rectStart} y="0" fillOpacity="0.7" fill={bool === true ? 'rgb(92,83,75)' : 'rgb(137,164,169)'} style={{strokeWidth: '1', stroke: 'black'}}></rect>
+          <rect key={rectStart + rectWidth} onClick={() => this.props.activeTransaction(transaction)} width= {rectWidth} height="15" x= {rectStart} y="0" fill={bool === true ? 'rgb(220,197,178)' : 'rgb(220,197,178)'} style={{strokeWidth: '1', stroke: 'black'}}></rect>
+        );
+        firstLayer.push(
+          <text key={rectStart + rectWidth + 'text'} x={rectStart + (rectWidth / 2)} y="11" fill="black" textAnchor="middle" alignmentBaseline="middle" fontSize="13" style={{fontWeight: '600'}}>{transaction.title}</text>
+            );
+      } else {
+        bool = !bool;
+        secondLayer.push(
+            <rect key={rectStart + rectWidth} onClick={() => this.props.activeTransaction(transaction)} width= {rectWidth} height="15" x= {rectStart} y="16" fill={bool === false ? 'rgb(220,197,178)' : 'rgb(220,197,178)'} style={{strokeWidth: '1', stroke: 'black'}}></rect>
+        );
+        secondLayer.push(
+          <text key={rectStart + rectWidth + 'text'} x={rectStart + (rectWidth / 2)} y="28" fill="black" textAnchor="middle" alignmentBaseline="middle" fontSize="13" style={{fontWeight: '600'}}>{transaction.title}</text>
         );
       }
-      secondLayer.push(
-          <rect key={rectStart + rectWidth} onClick={() => this.props.activeTransaction(transaction)} width= {rectWidth} height="16" x= {rectStart} y="16" fill="rgb(220,197,178)" style={{strokeWidth: '1', stroke: 'black'}}></rect>
-      );
     });
     const allLayers = firstLayer.concat(secondLayer);
     return allLayers;

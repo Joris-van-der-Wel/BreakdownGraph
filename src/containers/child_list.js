@@ -31,7 +31,7 @@ class ChildList extends Component {
             counterStart={this.props.allEvents.timing.begin.counter}
             key={event.id}
             event={event}
-            color="rgb(220,197,178)"/>
+            color="rgb(187,214,219)"/>
         </div>
       );
     });

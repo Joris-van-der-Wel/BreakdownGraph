@@ -19,7 +19,7 @@ class Header extends Component {
     for (let xPlot = 0; xPlot < this.plotWidth; xPlot += (1000 * this.props.globals.plotScale)) {
       if (xPlot !== 0) {
         secTexts.push(
-          <text className="timelineText" key={xPlot + 'Text'} x={xPlot - (70 * this.props.globals.plotScale)} y="13" key={xPlot} style={{fill: 'black'}}>
+          <text className="timelineText" key={xPlot + 'Text'} x={xPlot - (70 * this.props.globals.plotScale)} y="15" key={xPlot} style={{fill: 'black'}}>
             <tspan>{xPlot / (1000 * this.props.globals.plotScale) + 's'}</tspan>
           </text>
         );
@@ -30,7 +30,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header" style={{outline: '1px solid black', position: 'relative', height: '53', zIndex: 10}}>
+      <div className="header" style={{borderStyle: 'solid', borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: 'grey', boxSizing: 'border-box', position: 'relative', height: '54', zIndex: 10}}>
         <div className="left" style={{position: 'absolute', left: 0, top: 0, width: 310, paddingLeft: 2}}>
           <div className="contentUp"><strong>↓ Breakdown - Events</strong></div>
           <div className="contentBottom" style={{textAlign: 'right'}}><strong>Transactions → </strong></div></div>

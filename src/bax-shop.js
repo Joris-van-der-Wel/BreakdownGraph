@@ -29,7 +29,7 @@ export default {
         },
         {
             "id": "Homepage_Dubbel",
-            "title": "01_Home",
+            "title": "01.5_Home_2nd",
             "timing": {
                 "begin": {
                     "counter": 4500.34587,
@@ -61,7 +61,7 @@ export default {
         },
         {
             "id": "Zoeken_Dubbel",
-            "title": "02_Zoeken",
+            "title": "02.5_Zoeken_2nd",
             "timing": {
                 "begin": {
                     "counter": 9000.763822,
