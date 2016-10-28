@@ -40,7 +40,7 @@ class MetaData extends Component {
   render() {
     if (this.props.activeEvent === null) {
       return (
-        <div className="dataMid" style={{float: 'left', width: '38%', height: 'auto', padding: '2px 2px 2px 2px'}}>
+        <div className="dataMid" style={{float: 'left', width: '37.5%', height: 'auto', padding: '2px 2px 2px 2px'}}>
           <strong> MetaData: No event selected </strong>
           <div> {this.renderList()} </div>
         </div>
